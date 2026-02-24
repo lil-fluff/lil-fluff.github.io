@@ -122,6 +122,17 @@ main {
   margin: 0 auto;
 }
 
+/* Center main content vertically on pages that opt in */
+main.contentHighlight {
+  /* main already has display:flex; flex-direction:column; keep that */
+  justify-content: center; /* vertical centering */
+  min-height: calc(100vh - 140px); /* reserve space for header + fixed footer */
+  padding-top: 20px;
+  padding-bottom: 20px;
+  box-sizing: border-box;
+}
+
+
 /* Glitchy title styling (no animation) */
 h1 {
   font-size: 2.5em;
@@ -132,6 +143,30 @@ h1 {
     0 0 10px rgba(0, 255, 255, 0.8),
     0 0 20px rgba(0, 255, 255, 0.6),
     0 0 30px rgba(0, 255, 255, 0.4);
+}
+
+/* Quote-style heading — apply to <h3 class="quote"> */
+h3.quote {
+  font-style: italic;
+  color: var(--accent-color);
+  text-shadow: 0 0 6px rgba(0, 255, 255, 0.45);
+  background-color: rgba(0, 255, 255, 0.03);
+  border-left: 4px solid rgba(0, 255, 255, 0.18);
+  padding: 10px 16px;
+  margin: 18px auto;
+  border-radius: 6px;
+  max-width: 760px;
+  font-size: 1.05em;
+  line-height: 1.35;
+}
+
+/* Keep the quote readable on small screens */
+@media (max-width: 768px) {
+  h3.quote {
+    font-size: 1em;
+    padding: 8px 12px;
+    max-width: 100%;
+  }
 }
 
 /* Content styling */
@@ -202,7 +237,7 @@ footer p {
   transform: translateY(-3px);
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments 
 @media (max-width: 768px) {
   header {
     flex-direction: column;
@@ -220,5 +255,199 @@ footer p {
   
   main {
     padding: 20px;
+  }
+}*/
+
+/* Improved reflow for small screens
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 12px 16px;
+    gap: 12px;
+  }
+
+  .profile {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .profile > img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .profile .profile-name {
+    font-size: 1.05rem;
+  }
+
+  .profile .profile-tagline {
+    font-size: 0.85rem;
+  }
+
+  nav {
+    width: 100%;
+    justify-content: flex-end;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    padding: 6px 10px;
+    font-size: 0.95rem;
+    border-radius: calc(var(--border-radius) - 2px);
+  }
+
+  main {
+    padding: 20px 14px;
+    max-width: 100%;
+    margin: 0 8px;
+    align-items: flex-start;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+    line-height: 1.2;
+    margin-bottom: 18px;
+    text-align: left;
+    word-break: break-word;
+  }
+
+  h3.quote {
+    font-size: 1rem;
+    padding: 8px 12px;
+    max-width: 100%;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .linktree {
+    gap: 14px;
+    margin-top: 24px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .linktree a {
+    width: 90%;
+    max-width: 360px;
+    padding: 12px;
+    font-size: 1.05rem;
+  }
+
+  footer {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+
+  body {
+    padding-bottom: 80px;
+  }
+}*/
+
+/* Improved reflow for small screens */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start; /* left align header children */
+    padding: 12px 16px;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .profile {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* keep profile content left-aligned */
+    gap: 12px;
+  }
+
+  .profile > img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .profile .profile-info {
+    flex: 1; /* let name/tagline fill remaining width */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .profile .profile-name { font-size: 1.05rem; }
+  .profile .profile-tagline { font-size: 0.85rem; }
+
+  nav {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    justify-content: space-between; /* distribute links to fill width */
+    flex-wrap: wrap;
+  }
+
+  /* Make each nav button take equal space while keeping text/icon left-aligned inside */
+  nav a {
+    flex: 1 1 0;
+    padding: 6px 10px;
+    font-size: 0.95rem;
+    border-radius: calc(var(--border-radius) - 2px);
+    text-align: center;
+  }
+
+  main {
+    padding: 20px 14px;
+    max-width: 100%;
+    margin: 0 8px;
+    align-items: flex-start;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+    line-height: 1.2;
+    margin-bottom: 18px;
+    text-align: left;
+    word-break: break-word;
+  }
+
+  h3.quote {
+    font-size: 1rem;
+    padding: 8px 12px;
+    max-width: 100%;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .linktree {
+    gap: 14px;
+    margin-top: 24px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .linktree a {
+    width: 90%;
+    max-width: 360px;
+    padding: 12px;
+    font-size: 1.05rem;
+  }
+
+  footer {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+
+  /* ensure footer doesn't obscure content */
+  body {
+    padding-bottom: 80px;
   }
 }

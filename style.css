@@ -201,6 +201,45 @@ footer p {
   text-shadow: 0 0 3px rgba(255, 255, 255, 0.2);
 }
 
+footer .tooltip {
+  position: relative;
+  color: var(--text-secondary);
+  cursor: default;
+  outline: none;
+}
+
+footer .tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  bottom: 125%;
+  transform: translate(-50%, 6px);
+  background: linear-gradient(180deg, rgba(10,5,20,0.98), var(--background-dark));
+  color: var(--text-primary);
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  border: 1px solid rgba(138, 43, 226, 0.14); 
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 8px rgba(138, 43, 226, 0.06);
+  transition: opacity .18s ease, transform .18s ease;
+  z-index: 200;
+}
+
+footer .tooltip:hover::after,
+footer .tooltip:focus::after {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  footer .tooltip::after { transition: none; }
+}
+
+
 /* Linktree styling */
 .linktree {
   display: flex;

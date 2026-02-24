@@ -237,119 +237,6 @@ footer p {
   transform: translateY(-3px);
 }
 
-/* Responsive adjustments 
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  nav {
-    width: 100%;
-    justify-content: center;
-  }
-  
-  h1 {
-    font-size: 2em;
-  }
-  
-  main {
-    padding: 20px;
-  }
-}*/
-
-/* Improved reflow for small screens
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 12px 16px;
-    gap: 12px;
-  }
-
-  .profile {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-  }
-
-  .profile > img {
-    width: 48px;
-    height: 48px;
-  }
-
-  .profile .profile-name {
-    font-size: 1.05rem;
-  }
-
-  .profile .profile-tagline {
-    font-size: 0.85rem;
-  }
-
-  nav {
-    width: 100%;
-    justify-content: flex-end;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-
-  nav a {
-    padding: 6px 10px;
-    font-size: 0.95rem;
-    border-radius: calc(var(--border-radius) - 2px);
-  }
-
-  main {
-    padding: 20px 14px;
-    max-width: 100%;
-    margin: 0 8px;
-    align-items: flex-start;
-  }
-
-  h1 {
-    font-size: 1.6rem;
-    line-height: 1.2;
-    margin-bottom: 18px;
-    text-align: left;
-    word-break: break-word;
-  }
-
-  h3.quote {
-    font-size: 1rem;
-    padding: 8px 12px;
-    max-width: 100%;
-  }
-
-  p {
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-
-  .linktree {
-    gap: 14px;
-    margin-top: 24px;
-    width: 100%;
-    align-items: center;
-  }
-
-  .linktree a {
-    width: 90%;
-    max-width: 360px;
-    padding: 12px;
-    font-size: 1.05rem;
-  }
-
-  footer {
-    padding: 10px;
-    font-size: 0.85rem;
-  }
-
-  body {
-    padding-bottom: 80px;
-  }
-}*/
 
 /* Improved reflow for small screens */
 @media (max-width: 768px) {
@@ -412,7 +299,6 @@ footer p {
     font-size: 1.6rem;
     line-height: 1.2;
     margin-bottom: 18px;
-    text-align: left;
     word-break: break-word;
   }
 
@@ -425,6 +311,20 @@ footer p {
   p {
     font-size: 1rem;
     line-height: 1.5;
+  }
+
+  main {
+    max-width: 92%;
+  }
+
+  main.contentHighlight{
+    text-align: left;         
+    hyphens: auto;             
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    overflow-wrap: anywhere;  
+    word-break: break-word;     
+    text-wrap: balance; 
   }
 
   .linktree {
